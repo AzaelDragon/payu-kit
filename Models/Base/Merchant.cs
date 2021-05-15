@@ -1,4 +1,6 @@
-﻿namespace PayU.Models.Base
+﻿using Newtonsoft.Json;
+
+namespace PayU.Models.Base
 {
     /// <summary>
     /// Describes the issuer of the requests.
@@ -8,11 +10,13 @@
         /// <summary>
         /// Authorization login key supplied by PayU.
         /// </summary>
-        public string apiLogin { get; set; }
+        [JsonProperty("apiLogin")]
+        public string ApiLogin { get; set; }
         
         /// <summary>
         /// Authorization password key supplied by PayU.
         /// </summary>
-        public string apiKey { get; set; }
+        [JsonProperty("apiKey")]
+        public string ApiKey { get; set; }
     }
 }

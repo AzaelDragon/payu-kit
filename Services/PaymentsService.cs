@@ -36,29 +36,29 @@ namespace PayU.Services
         /// Get all the payment methods available for the merchant.
         /// </summary>
         /// <returns></returns>
-        public async Task<PaymentMethods> GetPaymentMethods()
+        public async Task<AvailableMethods> GetPaymentMethods()
         {
-            var body = new BaseRequest()
+            var body = new BaseRequest
             {
-                test = TestMode,
-                command = ApiCommand.GetPaymentMethods,
-                language = Language,
-                merchant = new Merchant
+                Test = TestMode,
+                Command = ApiCommand.GetPaymentMethods,
+                Language = Language,
+                Merchant = new Merchant
                 {
-                    apiKey = ApiKey,
-                    apiLogin = ApiLogin
+                    ApiKey = ApiKey,
+                    ApiLogin = ApiLogin
                 }
             };
 
-            PaymentMethods response;
+            AvailableMethods response;
             
             try
             {
-                response = await Endpoint.WithHeaders(Headers).PostJsonAsync(body).ReceiveJson<PaymentMethods>();
+                response = await Endpoint.WithHeaders(Headers).PostJsonAsync(body).ReceiveJson<AvailableMethods>();
 
-                if (response.code == ResponseCode.Success) return response;
+                if (response.Code == ResponseCode.Success) return response;
                 
-                if (response.error == "Invalid credentials")
+                if (response.Error == "Invalid credentials")
                 {
                     throw new InvalidAuthException("The provided credentials for the PayU API seem to be invalid.");
                 }

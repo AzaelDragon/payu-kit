@@ -1,4 +1,6 @@
-﻿namespace PayU.Models.Base
+﻿using Newtonsoft.Json;
+
+namespace PayU.Models.Base
 {
     /// <summary>
     /// Describes all basic requests with the PayU API.
@@ -8,21 +10,25 @@
         /// <summary>
         /// Determines whether the environment is in production mode or not.
         /// </summary>
-        public bool test { get; set; }
+        [JsonProperty("test")]
+        public bool Test { get; set; }
     
         /// <summary>
         /// Determines the language of the negotiation. Should be a two character value, like 'en'.
         /// </summary>
-        public string language { get; set; }
+        [JsonProperty("language")]
+        public string Language { get; set; }
     
         /// <summary>
         /// The command to execute within the endpoint.
         /// </summary>
-        public string command { get; set; }
+        [JsonProperty("command")]
+        public string Command { get; set; }
     
         /// <summary>
         /// The issuer of the request. Counts as API authorization.
         /// </summary>
-        public Merchant merchant { get; set; }
+        [JsonProperty("merchant")]
+        public Merchant Merchant { get; set; }
     }
 }

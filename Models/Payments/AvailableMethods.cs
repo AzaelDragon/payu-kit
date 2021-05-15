@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using PayU.Models.Base;
 
 namespace PayU.Models.Payments
@@ -11,34 +12,40 @@ namespace PayU.Models.Payments
         /// <summary>
         /// Unique identifier for the payment method.
         /// </summary>
-        public string id { get; set; }
+        [JsonProperty("id")]
+        public string Id { get; set; }
         
         /// <summary>
         /// Short description of the payment method.
         /// </summary>
-        public string description { get; set; }
+        [JsonProperty("decription")]
+        public string Description { get; set; }
         
         /// <summary>
         /// Country in which this payment method operates
         /// </summary>
-        public string country { get; set; }
+        [JsonProperty("country")]
+        public string Country { get; set; }
         
         /// <summary>
         /// Describes whether a particular payment method is enabled or not.
         /// </summary>
-        public bool enabled { get; set; }
+        [JsonProperty("enabled")]
+        public bool Enabled { get; set; }
         
         /// <summary>
         /// Additional notes regarding the payment method.
         /// </summary>
-        public string reason { get; set; }
+        [JsonProperty("reason")]
+        public string Reason { get; set; }
     }
 
     /// <summary>
     /// Defines all the available payment methods for the specified account.
     /// </summary>
-    public class PaymentMethods: BaseResponse
+    public class AvailableMethods: BaseResponse
     {
-        public List<PaymentMethod> paymentMethods { get; set; }
+        [JsonProperty("paymentMethods")]
+        public List<PaymentMethod> PaymentMethods { get; set; }
     }
 }
