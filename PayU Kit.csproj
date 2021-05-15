@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>PayU</RootNamespace>
+        <LangVersion>8</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>PayU Development Kit</Title>
+        <Authors>David S. García (Azæl)</Authors>
+        <Description>Unofficial .NET 4+ API wrapper for easy integration within ASP.NET applications.</Description>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageIconUrl>https://latotuga.s3-us-west-2.amazonaws.com/static/payu_logo_u_reverse.png</PackageIconUrl>
+        <RepositoryUrl>https://github.com/AzaelDragon/payu-kit</RepositoryUrl>
+        <RepositoryType>Public</RepositoryType>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <TargetFramework>net461</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Flurl.Http" Version="3.2.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>
