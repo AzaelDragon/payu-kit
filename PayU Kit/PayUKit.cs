@@ -1,5 +1,4 @@
-﻿using System;
-using PayU.Services;
+﻿using PayU.Services;
 
 namespace PayU
 {
