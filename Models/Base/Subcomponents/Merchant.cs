@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PayU.Models.Base
+namespace PayU.Models.Base.Subcomponents
 {
     /// <summary>
     /// Describes the issuer of the requests.

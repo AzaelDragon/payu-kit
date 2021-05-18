@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PayU.Models.Base.Subcomponents;
 
 namespace PayU.Models.Base
 {
