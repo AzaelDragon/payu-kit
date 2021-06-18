@@ -6,9 +6,9 @@ namespace PayU
     {
         public PaymentsService Payments;
         
-        public PayUKit(string apiLogin, string apiKey, bool testMode, string language)
+        public PayUKit(string apiLogin, string apiKey, string merchantId, bool testMode, string language)
         {
-            Payments = new PaymentsService(apiLogin, apiKey, language, testMode);
+            Payments = new PaymentsService(apiLogin, apiKey, merchantId, language, testMode);
         }
     }
 }

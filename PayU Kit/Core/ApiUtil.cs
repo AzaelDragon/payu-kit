@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace PayU.Core
 {
@@ -16,7 +17,7 @@ namespace PayU.Core
         /// <param name="amount">The amount to charge for the transaction.</param>
         /// <param name="currency">The money used to process the transaction.</param>
         /// <returns></returns>
-        public static string HashSignature(string apiKey, string merchantId, string referenceCode, double amount,
+        public static string HashSignature(string apiKey, string merchantId, string referenceCode, string amount,
             string currency)
         {
             var stringBase = apiKey + '~' + merchantId + '~' + referenceCode + '~' + amount + '~' + currency;

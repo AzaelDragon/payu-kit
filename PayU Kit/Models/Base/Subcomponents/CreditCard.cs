@@ -5,7 +5,7 @@ namespace PayU.Models.Base.Subcomponents
     /// <summary>
     /// Describes a credit card's information.
     /// </summary>
-    public class CreditCard : DebitCard
+    public class CreditCard : Card
     {
         
         /// <summary>

@@ -41,7 +41,7 @@ namespace PayU.Models.Base.Subcomponents
         /// See http://developers.payulatam.com/en/api/variables_table.html for available codes.
         /// </param>
         /// <returns>An Additional Value object describing the transaction's value.</returns>
-        public static AdditionalValue TransactionValue(double value, string currency) =>
+        public static AdditionalValue TransactionValue(string value, string currency) =>
             new AdditionalValue(value, currency);
         
         /// <summary>
@@ -52,8 +52,12 @@ namespace PayU.Models.Base.Subcomponents
         /// <param name="value">
         /// The amount of the tax collected. It can contain two decimal digits, like 19000 and 19000.00.
         /// </param>
+        /// <param name="currency">
+        /// The ISO currency code associated with the amount of the additional value.
+        /// See http://developers.payulatam.com/en/api/variables_table.html for available codes.
+        /// </param>
         /// <returns>An Additional Value object describing this transaction's VAT Taxation.</returns>
-        public static AdditionalValue TaxValue(double value) => new AdditionalValue(value, "COP");
+        public static AdditionalValue TaxValue(string value, string currency) => new AdditionalValue(value, currency);
 
         /// <summary>
         /// Should be sent within the additional parameters array as TX_TAX_RETURN_BASE.
@@ -63,8 +67,12 @@ namespace PayU.Models.Base.Subcomponents
         /// <param name="value">
         /// The base amount under which the VAT is collected. It can contain two decimal digits, like 19000 and 19000.00.
         /// </param>
+        /// <param name="currency">
+        /// The ISO currency code associated with the amount of the additional value.
+        /// See http://developers.payulatam.com/en/api/variables_table.html for available codes.
+        /// </param>
         /// <returns>An Additional Value object describing this transaction's VAT Base.</returns>
-        public static AdditionalValue TaxReturnBase(double value) => new AdditionalValue(value, "COP");
+        public static AdditionalValue TaxReturnBase(string value, string currency) => new AdditionalValue(value, currency);
     }
     
     /// <summary>
@@ -76,7 +84,7 @@ namespace PayU.Models.Base.Subcomponents
         {
         }
 
-        public AdditionalValue(double value, string currency)
+        public AdditionalValue(string value, string currency)
         {
             Value = value;
             Currency = currency;
@@ -87,7 +95,7 @@ namespace PayU.Models.Base.Subcomponents
         ///  For example: 1000.00
         /// </summary>
         [JsonProperty("value")]
-        public double Value { get; set; }
+        public string Value { get; set; }
         
         /// <summary>
         /// The ISO currency code associated with the amount of the additional value.

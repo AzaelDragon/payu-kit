@@ -30,7 +30,7 @@ namespace PayU.Models.Base.Subcomponents
         /// The debit card's data if said payment method is being used.
         /// </summary>
         [JsonProperty("debitCard")]
-        public DebitCard DebitCard { get; set; }
+        public Card DebitCard { get; set; }
         
         /// <summary>
         /// Additional parameters or data associated with a transaction.
@@ -93,7 +93,7 @@ namespace PayU.Models.Base.Subcomponents
         public ThreeDomainSecure ThreeDomainSecure { get; set; }
 
     }
-
+    
     public class TransactionResponse
     {
         /// <summary>
@@ -166,19 +166,19 @@ namespace PayU.Models.Base.Subcomponents
         /// The date in which the transaction was made.
         /// </summary>
         [JsonProperty("transactionDate")]
-        public DateTime TransactionDate { get; set; }
+        public string TransactionDate { get; set; }
         
         /// <summary>
         /// The time in which the transaction was made.
         /// </summary>
         [JsonProperty("transactionTime")]
-        public DateTime TransactionTime { get; set; }
+        public string TransactionTime { get; set; }
         
         /// <summary>
         /// The date in which the operation was made.
         /// </summary>
         [JsonProperty("operationDate")]
-        public DateTime OperationDate { get; set; }
+        public string OperationDate { get; set; }
         
         /// <summary>
         /// Additional parameters or data associated with the response.
@@ -208,19 +208,19 @@ namespace PayU.Models.Base.Subcomponents
         /// Sets the transaction to both authorize and capture a transaction's funds.
         /// </summary>
         /// <returns></returns>
-        public static string AuthorizeAndCapture() => new TransactionType("AUTHORIZATION_AND_CAPTURE").Value;
+        public static TransactionType AuthorizeAndCapture() => new TransactionType("AUTHORIZATION_AND_CAPTURE");
 
         /// <summary>
         /// Sets the transaction to authorize only. A capture will be needed later on.
         /// </summary>
         /// <returns></returns>
-        public static string Authorize() => new TransactionType("AUTHORIZATION").Value;
+        public static TransactionType Authorize() => new TransactionType("AUTHORIZATION");
 
         /// <summary>
         /// Sets the transaction to capture only. An authorization should have been previously made.
         /// </summary>
         /// <returns></returns>
-        public static string Capture() => new TransactionType("CAPTURE").Value;
+        public static TransactionType Capture() => new TransactionType("CAPTURE");
 
     }
 }

@@ -13,7 +13,7 @@ namespace PayU.Models.Base.Subcomponents
         /// Determines the amount of installments in which to differ a purchase.
         /// </summary>
         [JsonProperty("INSTALLMENTS_NUMBER")]
-        public int InstallmentsNumber { get; set; }
+        public int? InstallmentsNumber { get; set; }
         
         /// <summary>
         /// Where to send the buyer once the payment flow finishes.
